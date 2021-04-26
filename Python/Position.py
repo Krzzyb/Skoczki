@@ -68,4 +68,16 @@ class Position:
       for x in fairMoves:
         if (x.isOnList(forbiddenMoves) == False):
           notForbiddenMoves.append(x)
-      return notForbiddenMoves;
+      return notForbiddenMoves
+
+    def isOnlyTwo(self, boardSize, visitedMoves):
+      connections = []
+      fairMoves = self.getAllFairMoves(boardSize)
+      for x in visitedMoves:
+        for z in fairMoves:
+          if x == z:
+            connections.append(z)
+
+      if len(connections) == 2:
+        return True
+      return False
