@@ -77,7 +77,6 @@ class Position:
         for z in fairMoves:
           if x == z:
             connections.append(z)
-
       if len(connections) == 2:
         return True
       return False
