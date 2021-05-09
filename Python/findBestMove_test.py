@@ -2,9 +2,9 @@ from findBestMove import findBestMove
 from Position import Position
 
 #Tutaj można zmienić punkt startowy
-startPoint = Position("D3")
+startPoint = Position("C3")
 # a tu wielkosc szachownicy
-boardSize = 5 
+boardSize = 7 
 
  
 moves = findBestMove(startPoint, startPoint, boardSize, [])

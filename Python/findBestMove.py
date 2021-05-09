@@ -16,6 +16,9 @@ def findBestMove(currentPosition, startPoint, boardSize, visitedMoves):
     for nextMove in moves:
       result = findBestMove(nextMove,startPoint, boardSize, newVisitedMoves)
       if len(bestResult) < len(result):
-        bestResult = result;     
+        for x in bestResult:
+          if (x.isOnlyTwo(boardSize, visitedMoves) == True):
+            bestResult = result
+             
      
     return bestResult
