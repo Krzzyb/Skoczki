@@ -3,8 +3,8 @@ from Position import Position
 from result_check import resultCheck
 
 # Arrange
-startPoint = Position("B1")
-boardSize = 4
+startPoint = Position("D3")
+boardSize = 5
 b1SampleResult = [
   Position("B1"),
   Position("D2"),
@@ -24,10 +24,6 @@ moves = findBestMove(startPoint, startPoint, boardSize, [])
 # Assert
 print(f"Expected Moves: {[str(move) for move in b1SampleResult]}")
 print(f"Returned Moves: {[str(move) for move in moves]}")
-print("Result check:")
-print(resultCheck(moves, boardSize))
 
-startPoint = Position("D3")
-moves = findBestMove(startPoint, startPoint, boardSize, [])
-print(f"Returned Moves: {[str(move) for move in moves]}")
+print("Result check:")
 print(resultCheck(moves, boardSize))
