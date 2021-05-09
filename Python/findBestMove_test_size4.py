@@ -1,6 +1,6 @@
-from findBestMove import findBestMove
+from findBestMove import findBestMove, resultCheck
 from Position import Position
-from result_check import resultCheck
+
 
 # Arrange
 startPoint = Position("B1")

@@ -1,3 +1,11 @@
+def resultCheck (result, boardSize):
+    if len(result) == 0:
+        return False
+    for move in result:
+        if len(move.getAllFairAllowedMoves(boardSize, result)) != 2:
+            return False
+    return True
+
 def findBestMove(currentPosition, startPoint, boardSize, visitedMoves):
     moves = currentPosition.getAllFairMoves(boardSize); 
     newVisitedMoves = visitedMoves[:]
@@ -15,7 +23,7 @@ def findBestMove(currentPosition, startPoint, boardSize, visitedMoves):
     moves = currentPosition.getAllFairNotForbiddenMoves(boardSize, visitedMoves); 
     for nextMove in moves:
       result = findBestMove(nextMove,startPoint, boardSize, newVisitedMoves)
-      if len(bestResult) < len(result):
+      if len(bestResult) < len(result) and resultCheck(result, boardSize):
         bestResult = result;     
      
     return bestResult
