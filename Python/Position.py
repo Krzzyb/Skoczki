@@ -12,9 +12,9 @@ class Position:
         self.y = y
 
     def initFromString(self, LN):
-      letter = LN[0];
+      letter = LN[0]
       L = ord(letter)
-      number = LN[1];
+      number = LN[1]
       self.initFromCoordiates(L - 64, int(number))
 
     # Method:
@@ -34,7 +34,7 @@ class Position:
         Position(self.x-2, self.y-1),
         Position(self.x-1, self.y-2),
         Position(self.x+1, self.y-2),
-        Position(self.x+2, self.y-1)];
+        Position(self.x+2, self.y-1)]
 
     def isOnBoard(self, boardSize):
       if self.x > boardSize:
@@ -49,7 +49,7 @@ class Position:
         return True
 
     def getAllFairMoves(self, boardSize):
-      allMoves = self.getAllKnightMoves();
+      allMoves = self.getAllKnightMoves()
       fairMoves = []
       for x in allMoves:
         if (x.isOnBoard(boardSize)):
@@ -63,12 +63,20 @@ class Position:
       return False
 
     def getAllFairNotForbiddenMoves(self, boardSize, forbiddenMoves):
-      fairMoves = self.getAllFairMoves(boardSize);
+      fairMoves = self.getAllFairMoves(boardSize)
       notForbiddenMoves = []
       for x in fairMoves:
         if (x.isOnList(forbiddenMoves) == False):
           notForbiddenMoves.append(x)
       return notForbiddenMoves
+
+    def getAllFairAllowedMoves(self, boardSize, allowedMoves):
+      fairMoves = self.getAllFairMoves(boardSize)
+      fairAllowedMoves = []
+      for x in fairMoves:
+        if (x.isOnList(allowedMoves)):
+          fairAllowedMoves.append(x)
+      return fairAllowedMoves
 
     def isOnlyTwo(self, boardSize, visitedMoves):
       connections = []
@@ -80,3 +88,5 @@ class Position:
       if len(connections) == 2:
         return True
       return False
+
+    
